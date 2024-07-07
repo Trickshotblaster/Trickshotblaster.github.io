@@ -49,9 +49,7 @@ Distributing the ```2```:
 
 ```lim h-> 0 2h + 4x```
 
-As h approaches 0, the 2h term will approach 0 and we will be left with just 4x:
-
-```4x```
+As h approaches 0, the 2h term will approach 0 and we will be left with just ```4x```.
 
 # Challenge:
 Take the derivative of the function ```f(x) = x^3```
@@ -103,3 +101,57 @@ Now we can take the derivative of functions that take multiple parameters. Why i
 <img src="/assets/DerivativeSlope.png" alt="Visualization of the derivative and a function's slope" width="500"/>
 
 Above is a masterpiece I whipped up in MS Paint to show the relationship between a function's derivative and its slope at any given point. To find the slope of the function at a point, simply evaluate its derivative at the point. In the image, the red line represents the derivative of ```f(x)```. Where the red line is less than zero, the slope of ```f(x)``` is negative. Where it is greater than zero, the slope of ```f(x)``` is positive. When the derivative is equal to zero, the function has a minimum, as it is changing from decreasing to increasing. The green points and line represent the derivative of the function at a point and the corresponding slope of the real function.
+
+But why are derivatives useful for Machine Learning?
+
+The answer is that they can be used to find minimum values in functions. What does that mean? Here is an example:
+
+If we take our function ```f(a, b, c)``` from before, we can change ```a```, ```b```, and ```c``` in a way that will get f to output a very low value by using a technique called "Gradient Descent."
+
+We can define the "Gradient" of any parameter of a function as the partial derivative with respect to the parameter evaluated at the current point. In our previous example, ```∂f/∂a``` was equal to ```2```, which means that for any input values of ```a```, ```b```, and ```c```, ```a```'s gradient with respect to ```f``` will be ```2```. Similarly, ```∂f/∂c``` is equal to ```2c``` (Challenge: verify this on your own). This means that the gradient of ```c``` with respect to ```f``` will always be equal to ```2 * c```. 
+
+To perform Gradient Descent on ```f```, we start by initializing ```a```, ```b```, and ```c``` to reasonable values of our choice. We then take the partial derivative of ```f``` with respect to each parameter. To find the gradients of ```a```, ```b```, and ```c```, we just plug their current values into the partial derivative functions and note the outputs. Then, for each parameter, subtract its gradient (multiplied by a small number) from its value, and repeat the process over and over until ```f``` outputs a sufficiently low value with the inputs (```a```, ```b```, ```c```).
+
+Below is a snippet of python code to do this (using a different function ```f```):
+```py
+# initialize a, b, and c to random values
+a = 1
+b = 2
+
+# define our function we want to minimize (quadratic so it can't just go negative)
+def f(a, b):
+  return (a - b) ** 2
+
+# small number we will multiply the gradients by
+change_amount = 0.01
+
+# perform gradient descent
+for step in range(100):
+  # partial derivatives for each parameter
+  dfda = 2 * (a - b) * 1
+  dfdb = 2 * (a - b) * -1
+
+  # update parameters
+  a -= dfda * change_amount
+  b -= dfdb * change_amount
+
+print(f(a, b)) # basically zero
+```
+
+This is nice, but it's not very useful on its own. The real power comes from using it to minimize a loss function. A loss function in Machine Learning is a function that takes in a given set of inputs, their real labels, and predicted outputs from a model, as well as the model's parameters, and outputs a number representing how bad the model was at predicting the outputs. 
+
+One famous loss function is Mean Squared Error (MSE). The function definition is very confusing, but I'll put it here anyway:
+
+$$
+\mathit{MSE}=\frac{1}{n} \sum_{i=1}^n (x_{i}-y_{i})^2 \\[2ex]
+\begin{array}{@{} l >{$}l<{$} @{}} \end{array}
+$$
+Where $n$ is the number of examples, $x$ is the model's predicted output, and $y$ is the expected output.
+
+This is really just taking the average distance between what the model predicted and what it was supposed to predict and squaring the result.
+
+Note that it also takes in the given inputs and the model's parameters as inputs for optimization. We use Gradient Descent to minimize the MSE loss function by shifting the parameters of our model in the right way.
+
+This is likely very confusing, so let's illustrate it with a quick python example. I will create a linear function to be our model that takes in the parameters ```x```, ```m```, and ```b``` (as in ```y=mx+b```). I will then create a loss function that takes in inputs, expected outputs, and our model's parameters, and spits out a number to show how wrong the model is. I will optimize ```m``` and ```b``` using gradient descent, so that the loss is as low as possible and the model fits the data well. This process is called linear regression.
+
+
