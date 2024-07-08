@@ -17,7 +17,7 @@ timezone: America/Los_Angeles
 
 title: Trickshotblaster # the main title
 
-tagline: Deep Learning and ML # it will display as the sub-title
+tagline: Deep Learning and AI # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   Learning Data Science and ML in PyTorch
