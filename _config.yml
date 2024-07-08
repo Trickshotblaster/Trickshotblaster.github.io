@@ -10,21 +10,21 @@ theme: jekyll-theme-chirpy
 lang: en
 
 # Change to your timezone › https://kevinnovak.github.io/Time-Zone-Picker
-timezone:
+timezone: America/Los_Angeles
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
 title: Trickshotblaster # the main title
 
-tagline: aka brogrammer # it will display as the sub-title
+tagline: Deep Learning and ML # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   Learning Data Science and ML in PyTorch
 
 # Fill in the protocol & hostname for your site.
 # e.g. 'https://username.github.io', note that it does not end with a '/'.
-url: ""
+url: "https://trickshotblaster.github.io"
 
 github:
   username: Trickshotblaster # change to your github username
@@ -35,11 +35,10 @@ twitter:
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: your_full_name
-  email: example@domain.com # change to your email address
+  name: Brodie Hoener
+  email: brodiehoener734@gmail.com # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/username # change to your twitter homepage
     - https://github.com/Trickshotblaster # change to your github homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
@@ -60,7 +59,7 @@ webmaster_verifications:
 # Web Analytics Settings
 analytics:
   google:
-    id: # fill in your Google Analytics ID
+    id: G-SZGDRJF93M
   goatcounter:
     id: # fill in your GoatCounter ID
   umami:
@@ -101,7 +100,7 @@ avatar: https://avatars.githubusercontent.com/u/107130695?v=4
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
-social_preview_image: # string, local or CORS resources
+social_preview_image: https://avatars.githubusercontent.com/u/107130695?v=4 # string, local or CORS resources
 
 # boolean type, the global switch for TOC in posts.
 toc: true
