@@ -138,12 +138,6 @@ Although not much time is spent discussing residuals in the paper, they play a l
 
 ### H-Net Model PyTorch Implementation
 
-
-<details>
-<summary>
-
-</summary>
-
 ```python
 import torch
 import torch.nn as nn
@@ -367,7 +361,7 @@ class HNet(nn.Module):
         logits = self.decoder_proj(decoder_out)
         return logits
 ```
-</details>
+
 
 ## My Opinions on the Paper
 
