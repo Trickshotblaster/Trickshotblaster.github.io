@@ -30,7 +30,7 @@ The routing module compares the encoded bytes to one another using cosine simila
 
 #### Downsampler
 
-In the downsampler, the boundary probabilities are cut off at $p=0.5$ to be either $1$ or $0$. Then the hidden vectors for the boundary tokens ($p=1$) are simply selected concatenated together into a condensed tensor to be sent to the main network.
+In the downsampler, the boundary probabilities are cut off at \(p=0.5\) to be either \(1\) or \(0\). Then the hidden vectors for the boundary tokens (\(p=1\)) are simply selected concatenated together into a condensed tensor to be sent to the main network.
 
 
 #### Chunking Module Code
@@ -87,7 +87,7 @@ The smoothing module allows information from different chunks to be used in the 
 
 #### Upsampling
 
-The upsampler essentially duplicates each boundary vector to fill up the length of its chunk. The authors use a Straight Through Estimator to pretend that, in the backward pass, each of the upsampled vectors was weighted by its confidence $c_t$, which rewards high boundary probabilities in boundary vectors and punishes high boundary probabilities for non-boundary vectors, incentivizing the model to be confident in its boundary predictions.
+The upsampler essentially duplicates each boundary vector to fill up the length of its chunk. The authors use a Straight Through Estimator to pretend that, in the backward pass, each of the upsampled vectors was weighted by its confidence \(c_t\), which rewards high boundary probabilities in boundary vectors and punishes high boundary probabilities for non-boundary vectors, incentivizing the model to be confident in its boundary predictions.
 
 #### Dechunking Module Code
 ```python
