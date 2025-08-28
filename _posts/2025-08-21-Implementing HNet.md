@@ -2,9 +2,8 @@
 title: Implementing H-Net
 date: 2025-08-21 13:00:00 +/-0000
 categories: [ml, deep_learning, paper]
-tags: [ml, deep_learning, paper]     #
+tags: [ml, deep_learning, paper]     
 math: true
-TAG names should always be lowercase
 ---
 
 # H-Net Paper Quick (and probably incorrect) Implementation
