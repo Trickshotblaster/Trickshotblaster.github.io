@@ -187,7 +187,7 @@ $$
 \mathcal{L} = \frac{1}{N} \sum_{i=1}^n \left(y_i - \hat{y}_i\right)^2
 $$
 
-Where $y_i$ is the label (in this case our one-hot vector from earlier) and $\hat{y}_i = f_\theta(x)$ is the output of the model $f_\theta$ with input $x$ and parameters $\theta$
+Where $y_i$ is the label (in this case our one-hot vector from earlier) and $\hat{y}_i = f_{\theta}(x)$ is the output of the model $f_{\theta}$ with input $x$ and parameters $\theta$
 
 ### $\text{sum}$
 
@@ -233,6 +233,7 @@ $$
 We can see that $$\frac{\partial \text{ sum}}{\partial x_1} = 1.$$
 
 The same is true for all elements $x_n$ of $\text{diff}^2$. This means that 
+
 $$
 \frac{\partial \text{ sum}}{\partial \text{ diff}^2} = 
 
